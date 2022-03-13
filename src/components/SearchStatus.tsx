@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { ChangeEvent, FC } from "react";
 
 interface SearchStatusProps {
-  onSearch: (e: { target: { value: string } }) => void;
+  onSearch: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const SearchStatus: FC<SearchStatusProps> = React.memo(function SearchStatus({ onSearch }) {

@@ -40,7 +40,7 @@ export default function HomePage() {
     dispatch(removeContact(obj));
   };
 
-  const handleChange = React.useCallback((e: { target: { value: string } }) => {
+  const handleChange = React.useCallback((e) => {
     setSearchQuery(e.target.value);
   }, []);
 
