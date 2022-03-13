@@ -15,7 +15,7 @@ export default function Login() {
         dispatch(setUser({ email: user.email, id: user.uid }));
         navigate("/");
       })
-      .catch(() => alert("Invalid User!"));
+      .catch(() => alert("Invalid email or password!"));
   };
 
   return <Form title="Sign in" handleClick={handleLogin} />;
