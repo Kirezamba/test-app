@@ -30,7 +30,6 @@ const contactsSlice = createSlice({
     },
     editContact: (state, action) => {
       const editableIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      console.log(editableIndex);
 
       state.items[editableIndex].name = action.payload.name;
     },
