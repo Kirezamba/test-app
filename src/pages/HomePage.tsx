@@ -4,10 +4,11 @@ import { useAuth } from "../hooks/useAuth";
 import { removeUser } from "../store/slices/userSlice";
 import { fetchContacts } from "../api";
 import ContactsTable from "../components/ContactsTable";
-import { removeContact, setNewContact } from "../store/slices/contactsSlice";
+import { editContact, removeContact, setNewContact } from "../store/slices/contactsSlice";
 import { SearchStatus } from "../components/SearchStatus";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { IContact } from "../models/IContact";
+import { IEditContact } from "../models/IEditContact";
 
 export default function HomePage() {
   const contacts = useAppSelector(({ contacts }) => contacts.items);
@@ -38,6 +39,9 @@ export default function HomePage() {
   };
   const handleRemoveContact = (obj: IContact) => {
     dispatch(removeContact(obj));
+  };
+  const handleEditContact = (obj: IEditContact) => {
+    dispatch(editContact(obj));
   };
 
   const handleChange = React.useCallback((e) => {
@@ -71,7 +75,11 @@ export default function HomePage() {
             </div>
           </div>
         ) : (
-          <ContactsTable contacts={filteredContacts} onRemove={handleRemoveContact} />
+          <ContactsTable
+            contacts={filteredContacts}
+            onRemove={handleRemoveContact}
+            onEdit={handleEditContact}
+          />
         )}
       </div>
     </>

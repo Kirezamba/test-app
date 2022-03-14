@@ -5,11 +5,11 @@ import { IUser } from "./models/IUser";
 
 export const fetchContacts = () => async (dispatch: AppDispatch) => {
   dispatch(setIsLoading(true));
-  const { data } = await axios.get<IUser[]>("http://fakeapi.jsonparseronline.com/users");
+  const { data } = await axios.get<IUser[]>("https://jsonplaceholder.typicode.com/users");
   const contacts = data.map((item) => {
     return {
       id: item.id,
-      name: item.firstName,
+      name: item.name,
       phone: item.phone,
     };
   });
